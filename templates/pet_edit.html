@@ -1,0 +1,22 @@
+{% extends 'home.html' %}
+
+{% block header %}
+<h1>Edit {{ pet.name }}</h1>
+{% endblock %}
+
+{% block content %}
+
+
+{% if pet.photo_url %}
+<img class="img-fluid" src="{{ pet.photo_url }}" alt="Image of {{ pet.name }}">
+{% endif %}
+
+<h2>Update</h2>
+
+<form method="POST">
+  {% include "form.html" %}
+  <button class="btn btn-primary" type="submit">Update</button>
+  <a class="btn btn-secondary" href="{{ url_for('show_list_pets') }}">Back to List</a>
+</form>
+
+{% endblock %}

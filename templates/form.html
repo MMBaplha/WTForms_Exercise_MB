@@ -1,0 +1,27 @@
+{{ form.hidden_tag() }}
+
+{% for field in form %}
+{% if field.widget.input_type != 'hidden' %}
+<div class="form-group mb-3 row justify-content-center">
+
+  <!-- Label for the field -->
+   <div class="col-sm-4"> 
+   <label for="{{ field.id }}" class="form-label">{{ field.label }}</label>
+    </div>
+   <!-- Field input -->
+    <div class="col-sm-6">
+    {{ field(class="form-control") }}
+    
+    <!-- Error handling -->
+    
+      {% if field.errors %}
+      <ul class="text-danger mt-1">
+        {% for error in field.errors %}
+        <li><strong>{{ error }}</strong></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+{% endfor %}

@@ -1,0 +1,15 @@
+{% extends 'home.html' %}
+
+{% block header %}
+<h1>Add a Pet</h1>
+{% endblock %}
+
+{% block content %}
+
+  <form method="POST">
+    {% include "form.html" %}
+    <button class="btn btn-primary" type="submit">Add</button>
+    <a class="btn btn-secondary" href="{{ url_for('show_list_pets') }}">Back to List</a>
+  </form>
+  
+{% endblock %}
