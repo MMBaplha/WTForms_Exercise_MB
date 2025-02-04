@@ -34,9 +34,6 @@ def show_add_pet():
         db.session.commit()
         flash(f"{new_pet.name} has been added.", "success")
         return redirect(url_for('show_list_pets'))
-    
-    if form.is_submitted():
-        flash("Error: Form submission failed.", "danger")
 
     return render_template("add_pet.html", form=form)
 
