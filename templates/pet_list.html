@@ -5,18 +5,37 @@
 
 <div class="row pets-listing">
 
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="container mt-3">
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+
   {% for pet in pets %}
   <div class="col-3 pet-card">
     <img class="img-thumbnail" src="{{ pet.photo_url or '/static/default-pet.jpg' }}" alt="Image of {{ pet.name }}">
     <h4><a href="{{ url_for('show_edit_pet', pet_id=pet.id) }}">{{ pet.name }}</a></h4>
-    {% if pet.available %} <p><b> Available for adoption!</b></p> {% endif %}
+    {% if pet.available %}
+    <p><strong class="text-success">Available</strong></p>
+    {% else %}
+    <p class="text-danger">Not Available</p>
+    {% endif %}
   </div>
-  {% else %}
-  <div class="col-12">No pets available yet.</div>
   {% endfor %}
-
 </div>
 
-<a class="btn btn-primary mt-3" href="{{ url_for('show_add_pet') }}">Add a Pet</a>
+<br>
 
+<div class="d-flex justify-content-center">
+  <div class="col-sm-4">
+    <a class="btn btn-primary w-100" href="{{ url_for('show_add_pet') }}">Add a Pet</a>
+  </div>
+</div>
 {% endblock %}

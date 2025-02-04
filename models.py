@@ -21,7 +21,7 @@ class Pet(db.Model):
     def image_url(self):
         """Return image for pet -- bespoke or generic."""
 
-        return self.photo_url or GENERIC_IMAGE
+        return self.photo_url if self.photo_url else GENERIC_IMAGE
     
 def connect_db(app):
     db.app = app

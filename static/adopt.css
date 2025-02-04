@@ -1,49 +1,55 @@
-/* General font and spacing */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f8f9fa;
-}
-
-h1 {
-  margin: 1.5em 0;
-  text-align: center;
-  color: #9db5c5;
-  font-weight: bold;
-  text-underline-position: under;
-  text-decoration: underline #14a7fc;
-  text-decoration-thickness: 2px;
-}
-
-.pets-listing {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-bottom: 2em;
-  gap: 1.5em;
-}
-
-.pets-listing .pet-card {
-  width: 250px;
-  border: 1px solid #dee2e6;
-  border-radius: 0.5em;
-  background-color: #ffffff;
+form {
+  max-width: 500px;
+  margin: auto;
   padding: 1em;
-  text-align: center;
+  background: #ffffff;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.pets-listing .pet-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.form-group {
+  margin-bottom: 1rem;
 }
 
-.pets-listing .pet-card img {
-  max-height: 150px;
+.form-control {
   width: 100%;
-  object-fit: cover;
-  border-radius: 0.5em;
-  margin-bottom: 0.5em;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
 }
 
+.form-check {
+  margin-top: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.flash-messages .alert {
+  margin-top: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+}

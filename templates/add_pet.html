@@ -7,9 +7,20 @@
 {% block content %}
 
   <form method="POST">
+    {{ form.hidden_tag() }}
     {% include "form.html" %}
-    <button class="btn btn-primary" type="submit">Add</button>
-    <a class="btn btn-secondary" href="{{ url_for('show_list_pets') }}">Back to List</a>
+    <div class="form-group mb-3 row justify-content-center">
+      <div class="col-sm-4">
+        <button class="btn btn-primary w-100" type="submit">Add</button>
+      </div>
+    </div>
+
+    <div class="form-group mb-3 row justify-content-center">
+      <div class="col-sm-4">
+        <a class="btn btn-secondary w-100" href="{{ url_for('show_list_pets') }}">Back to List</a>
+      </div>
+    </div>
+
   </form>
   
 {% endblock %}

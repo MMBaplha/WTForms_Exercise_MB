@@ -7,15 +7,36 @@
 {% block content %}
 
 
-{% if pet.photo_url %}
+{% if pet.image_url() %}
 <img class="img-fluid" src="{{ pet.photo_url }}" alt="Image of {{ pet.name }}">
+{% endif %}
+
+<p><strong>Species:</strong> {{ pet.species }}</p>
+{% if pet.age %}
+  <p><strong>Age:</strong> {{ pet.age }}</p>
 {% endif %}
 
 <h2>Update</h2>
 
-<form method="POST">
-  {% include "form.html" %}
-  <button class="btn btn-primary" type="submit">Update</button>
+<form method="POST" class="mt-3">
+  {{ form.hidden_tag() }}
+
+  <div class="form-group mb-3">
+    {{ form.photo_url.label }} 
+    {{ form.photo_url(class="form-control") }}
+  </div>
+
+  <div class="form-group mb-3">
+    {{ form.notes.label }} 
+    {{ form.notes(class="form-control") }}
+  </div>
+
+  <div class="form-check mb-3">
+    {{ form.available(class="form-check-input") }} 
+    {{ form.available.label }}
+  </div>
+
+  <button class="btn btn-primary">Update</button>
   <a class="btn btn-secondary" href="{{ url_for('show_list_pets') }}">Back to List</a>
 </form>
 
